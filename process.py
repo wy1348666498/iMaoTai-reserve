@@ -44,9 +44,9 @@ mt_version = json.loads(requests.get('https://itunes.apple.com/cn/lookup?id=1600
 
 
 header_context = f'''
-MT-Lat: 28.499562
+MT-Lat: 30.735637
 MT-K: 1675213490331
-MT-Lng: 102.182324
+MT-Lng: 111.320609
 Host: app.moutai519.com.cn
 MT-User-Tag: 0
 Accept: */*
@@ -70,7 +70,7 @@ userId: 2
 
 
 # 初始化请求头
-def init_headers(user_id: str = '1', token: str = '2', lat: str = '29.83826', lng: str = '119.74375'):
+def init_headers(user_id: str = '1', token: str = '2', lat: str = '30.735637', lng: str = '111.320609'):
     for k in header_context.strip().split("\n"):
         temp_l = k.split(': ')
         dict.update(headers, {temp_l[0]: temp_l[1]})
@@ -141,8 +141,8 @@ def get_location_count(province: str,
                        item_code: str,
                        p_c_map: dict,
                        source_data: dict,
-                       lat: str = '29.83826',
-                       lng: str = '102.182324'):
+                       lat: str = '30.735637',
+                       lng: str = '111.320609'):
     day_time = int(time.mktime(datetime.date.today().timetuple())) * 1000
     session_id = headers['current_session_id']
     responses = requests.get(
@@ -166,8 +166,8 @@ def distance_shop(city,
                   province,
                   shops,
                   source_data,
-                  lat: str = '28.499562',
-                  lng: str = '102.182324'):
+                  lat: str = '30.735637',
+                  lng: str = '111.320609'):
     # shop_ids = p_c_map[province][city]
     temp_list = []
     for shop in shops:
@@ -284,7 +284,7 @@ def select_geo(i: str):
     return geocodes
 
 
-def get_map(lat: str = '28.499562', lng: str = '102.182324'):
+def get_map(lat: str = '30.735637', lng: str = '111.320609'):
     p_c_map = {}
     url = 'https://static.moutai519.com.cn/mt-backend/xhr/front/mall/resource/get'
     headers = {
