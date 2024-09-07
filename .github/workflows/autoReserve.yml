@@ -5,10 +5,13 @@ name: imaotai-action
 
 on:
   schedule:
-    - cron: '28 1 * * *'
+    - cron: '39 1 * * *'
+  workflow_dispatch:
 
 env:
-  TZ: Asia/Shanghai
+    # TZ: Asia/Shanghai
+    PUSHPLUS_KEY: ${{ secrets.PUSHPLUS_KEY }}
+    PRIVATE_AES_KEY: ${{ secrets.PRIVATE_AES_KEY }}
 
 jobs:
   build:
@@ -37,8 +40,5 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: start run
-        env:
-          PUSHPLUS_KEY: ${{ secrets.PUSHPLUS_KEY }}
-          PRIVATE_AES_KEY: ${{ secrets.PRIVATE_AES_KEY }}
         run: |
           python main.py
