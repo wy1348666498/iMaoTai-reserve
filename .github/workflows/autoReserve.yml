@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-    # TZ: Asia/Shanghai
+    TZ: Asia/Shanghai
     PUSHPLUS_KEY: ${{ secrets.PUSHPLUS_KEY }}
     PRIVATE_AES_KEY: ${{ secrets.PRIVATE_AES_KEY }}
 
