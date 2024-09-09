@@ -1,7 +1,8 @@
 import datetime
 import logging
 import sys
-
+import time
+import random
 import config
 import login
 import process
@@ -32,6 +33,11 @@ aes_key = privateCrypt.get_aes_key()
 
 s_title = '茅台预约成功'
 s_content = ""
+
+# 生成一个 60 到 600 秒之间的随机延时
+delay = random.randint(60, 600)
+print(f"随机延时: {delay} 秒")
+time.sleep(delay)
 
 for section in configs.sections():
     if TODAY > configs.get(section, 'enddate'):
