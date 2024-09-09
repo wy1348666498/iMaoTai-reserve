@@ -6,6 +6,7 @@ name: imaotai-action
 on:
  schedule:
     - cron: '20 0,1 * * *'
+ workflow_dispatch:
 
 env:
     TZ: Asia/Shanghai
